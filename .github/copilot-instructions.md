@@ -1,4 +1,4 @@
-# .github/copilot-instructions.md
+# AWS Pet Store API - Copilot Instructions
 
 ## Project Context
 **Objective**: Build a serverless Pet Store API with:
