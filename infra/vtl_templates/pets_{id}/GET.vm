@@ -1,0 +1,6 @@
+{
+  "TableName": "$table_name",
+  "Key": {
+    "id": {"S": "$method.request.path.id"}
+  }
+}

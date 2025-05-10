@@ -1,0 +1,19 @@
+{
+  "TableName": "$table_name",
+  "Key": {
+    "id": {"S": "$method.request.path.id"}
+  },
+  "UpdateExpression": "SET #name = :name, #type = :type, #age = :age",
+  "ConditionExpression": "userId = :userId",
+  "ExpressionAttributeNames": {
+    "#name": "name",
+    "#type": "type",
+    "#age": "age"
+  },
+  "ExpressionAttributeValues": {
+    ":name": {"S": "$input.path('$.name')"},
+    ":type": {"S": "$input.path('$.type')"},
+    ":age": {"N": "$input.path('$.age')"},
+    ":userId": {"S": "$context.identity.cognitoIdentityId"}
+  }
+}

@@ -1,0 +1,10 @@
+#if($context.error.message)
+#set($statusCode = $context.error.responseStatusCode)
+{
+  "error": {
+    "code": "$statusCode",
+    "message": "$context.error.message",
+    "requestId": "$context.requestId"
+  }
+}
+#end

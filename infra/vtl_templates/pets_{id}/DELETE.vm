@@ -1,0 +1,10 @@
+{
+  "TableName": "$table_name",
+  "Key": {
+    "id": {"S": "$method.request.path.id"}
+  },
+  "ConditionExpression": "userId = :userId",
+  "ExpressionAttributeValues": {
+    ":userId": {"S": "$context.identity.cognitoIdentityId"}
+  }
+}

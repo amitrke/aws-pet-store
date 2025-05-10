@@ -9,6 +9,22 @@
 
 ## Coding Patterns
 
+### Project Structure
+```
+aws-pet-store/
+├── .github/               # GitHub-related files
+├── infra/                 # AWS Terraform infrastructure code
+│   ├── main.tf            # Main Terraform configuration
+│   |── variables.tf       # Input variables
+│   │── outputs.tf         # Output variables
+│   │── modules/           # Reusable Terraform modules
+│   ├── api_gateway/       # API Gateway configuration
+│   │   ├── vtl_templates/ # VTL templates for request/response mapping
+│   │   ├── swagger.yaml   # OpenAPI spec for API Gateway
+│   │   └── README.md      # API Gateway documentation
+└── README.md              # Project documentation
+```
+
 ### Terraform Patterns
 ```hcl
 # Preferred resource naming
@@ -16,18 +32,6 @@ resource "aws_dynamodb_table" "pet_store" {
   name = "${var.env}-pet-store"  # Environment-prefixed names
 }
 
-# Module structure
-module "authentication" {
-  source = "./modules/auth"
-  google_client_id = var.google_client_id
-}
-
-# Variable conventions
-variable "env" {
-  description = "Deployment environment (dev/stage/prod)"
-  type        = string
-  default     = "dev"
-}
 ```
 
 ### API Gateway Patterns
@@ -121,15 +125,6 @@ variable "env" {
         
 
 ## Knowledge Base
-
-Key Files:
-
--   `infra/main.tf`  - Core infrastructure
-    
--   `api_gateway/vtl_templates/`  - Mapping templates
-    
--   `modules/auth/cognito.tf`  - Authentication setup
-    
 
 Reference Architectures:
 

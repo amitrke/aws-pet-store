@@ -1,0 +1,8 @@
+{
+  "TableName": "$table_name",
+  "IndexName": "UserIdIndex",
+  "KeyConditionExpression": "userId = :userId",
+  "ExpressionAttributeValues": {
+    ":userId": {"S": "$context.identity.cognitoIdentityId"}
+  }
+}

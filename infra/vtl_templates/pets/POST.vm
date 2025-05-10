@@ -1,0 +1,11 @@
+{
+  "TableName": "$table_name",
+  "Item": {
+    "id": {"S": "$context.requestId"},
+    "userId": {"S": "$context.identity.cognitoIdentityId"},
+    "name": {"S": "$input.path('$.name')"},
+    "type": {"S": "$input.path('$.type')"},
+    "age": {"N": "$input.path('$.age')"},
+    "createdAt": {"S": "$context.requestTime"}
+  }
+}
